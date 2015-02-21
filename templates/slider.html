@@ -9,11 +9,11 @@
                      data-bgrepeat="no-repeat">
                     <div class="tp-caption randomrotate"
                          data-x="{{slide.position_x}}"
-                         data-y="148"
+                         data-y="{{slide.position_y}}"
                          data-speed="{{ slide.speed }}"
                          data-start="{{ slide.start }}"
                          data-end="{{ slide.end }}"
-                         data-easing="{{slide.easing}}"><img width="400" src="{{ slide.image.url }}" alt="{{ slide.image }}"></div>
+                         data-easing="{{slide.easing}}"><img width="slide.image.width" src="{{ slide.image.url }}" alt="{{ slide.text }}"></div>
                 {% endfor %}
             </li>
 
