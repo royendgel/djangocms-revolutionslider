@@ -2,13 +2,13 @@ from setuptools import setup
 
 setup(
     name = "djangocms-revolutionslider",
-    version = "0.1",
+    version = "0.5",
     author = "Royendgel Silberie",
     author_email = "royendgel@techprocur.com",
     description = "Quick and easy Implementation of revolution slider",
     keywords='revolution slider, django, django-cms',
     url = "https://github.com/royendgel",
-    packages=['migrations'],
+    packages=['revolutionslider'],
     classifiers=[
       'Operating System :: MacOS :: MacOS X',
       'Operating System :: Unix',
