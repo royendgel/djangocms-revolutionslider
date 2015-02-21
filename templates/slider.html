@@ -1,0 +1,43 @@
+{% load cms_tags menu_tags sekizai_tags %}
+<div class="slider-container">
+    <div class="slider" id="revolutionSlider" data-slider-id="{{ instance.id }}" data-plugin-revolution-slider data-plugin-options='{"startheight": 500}'>
+        <ul>
+
+            <li data-transition="fade" data-slotamount="{{instance.slides.count}}" data- data-masterspeed="300">
+                {% for slide in slides %}
+                <img src="/static/img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top"
+                     data-bgrepeat="no-repeat">
+                    <div class="tp-caption randomrotate"
+                         data-x="{{slide.position_x}}"
+                         data-y="148"
+                         data-speed="{{ slide.speed }}"
+                         data-start="{{ slide.start }}"
+                         data-end="{{ slide.end }}"
+                         data-easing="{{slide.easing}}"><img width="400" src="{{ slide.image.url }}" alt="{{ slide.image }}"></div>
+                {% endfor %}
+            </li>
+
+        </ul>
+    </div>
+</div>
+<script>
+    // using the CMS.Plugin jquery, I need it only when the page is in edit mode anyways.
+    CMS.$("#revolutionSlider").on("click", function (event) {
+        /**
+         * When click is fired need to record the offsets , open a modal, sets the default acts like kind layer tingy.
+         * @type {offsetX|*|Number|Owl.drag.offsetX|e.drag.offsetX}
+         */
+        var offsetX = event.offsetX;
+        var offsetY = event.offsetY;
+        var modal = new CMS.Modal({'onClose' : function(){
+
+        }});
+        url = "{{url}}" + "?position_x=" + offsetX + "&position_y=" + offsetY + "&slider=" + {{ instance.id }};
+        modal.open(url, 'Add Layer to the slide');
+
+
+    });
+
+
+
+</script>
