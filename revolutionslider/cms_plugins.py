@@ -2,7 +2,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from models import Slider
+from .models import Slider
 
 
 class SliderRevolution(CMSPluginBase):
