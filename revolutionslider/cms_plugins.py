@@ -17,7 +17,7 @@ class SliderRevolution(CMSPluginBase):
         # print(dir(Slider.objects))
 
         context.update({
-            'slides': instance.slide.all(),
+            'slides': instance.slides.all(),
             'url': reverse('admin:revolutionslider_slide_add')
         })
         return context

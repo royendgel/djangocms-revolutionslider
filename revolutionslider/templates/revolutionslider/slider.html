@@ -3,17 +3,17 @@
     <div class="slider" id="revolutionSlider" data-slider-id="{{ instance.id }}" data-plugin-revolution-slider data-plugin-options='{"startheight": 500}'>
         <ul>
 
-            <li data-transition="fade" data-slotamount="{{instance.slides.count}}" data- data-masterspeed="300">
+            <li data-transition="fade" data-slotamount="{{ instance.slides.count }}" data- data-masterspeed="300">
                 {% for slide in slides %}
                 <img src="{{ STATIC_URL }}img/slides/slide-bg.jpg" data-bgfit="cover" data-bgposition="left top"
                      data-bgrepeat="no-repeat">
                     <div class="tp-caption randomrotate"
-                         data-x="{{slide.position_x}}"
-                         data-y="{{slide.position_y}}"
+                         data-x="{{ slide.position_x }}"
+                         data-y="{{ slide.position_y }}"
                          data-speed="{{ slide.speed }}"
                          data-start="{{ slide.start }}"
                          data-end="{{ slide.end }}"
-                         data-easing="{{slide.easing}}">
+                         data-easing="{{ slide.easing }}">
                          {% if slide.image %}
                         <img width="slide.image.width" src="{{ slide.image.url }}" alt="{{ slide.text }}">
                         {% endif %}
