@@ -14,7 +14,9 @@
                          data-start="{{ slide.start }}"
                          data-end="{{ slide.end }}"
                          data-easing="{{slide.easing}}">
+                         {% if slide.image %}
                         <img width="slide.image.width" src="{{ slide.image.url }}" alt="{{ slide.text }}">
+                        {% endif %}
                     </div>
                 {% endfor %}
             </li>

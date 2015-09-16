@@ -8,7 +8,7 @@ from .models import Slider
 class SliderRevolution(CMSPluginBase):
     text_enabled = True
     allow_children = True
-    render_template = "slider.html"
+    render_template = "revolutionslider/slider.html"
     model = Slider
     name = _("Revolution Slider")
 
