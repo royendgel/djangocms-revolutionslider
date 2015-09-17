@@ -29,7 +29,7 @@ class Slide(CMSPlugin):
     position_x = models.IntegerField(default=477, blank=False, null=True)
     position_y = models.IntegerField(default=180, blank=False, null=True)
     easing = models.CharField(max_length=25, choices=EASE_CHOICES, default=EASE_CHOICES[0])
-    slider = models.ForeignKey('Slider', blank=True, null=True, related_name='slide')
+    slider = models.ForeignKey('Slider', blank=True, null=True, related_name='slides')
 
     def __unicode__(self):
         return "%s" % (self.id)

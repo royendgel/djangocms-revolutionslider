@@ -2,3 +2,8 @@ djangocms_revolutionslider.egg-info
 .idea/
 build
 dist
+
+# Basics
+*.py[cod]
+*.pyc
+__pycache__
