@@ -29,7 +29,6 @@ class Slide(CMSPlugin):
     position_x = models.IntegerField(default=477, blank=False, null=True)
     position_y = models.IntegerField(default=180, blank=False, null=True)
     easing = models.CharField(max_length=25, choices=EASE_CHOICES, default=EASE_CHOICES[0])
-    slider = models.ForeignKey('Slider', blank=True, null=True, related_name='slides')
 
     def __unicode__(self):
         return "%s" % (self.id)
@@ -39,12 +38,6 @@ class Slider(CMSPlugin):
     master_start = models.IntegerField(default=1000, blank=True)
     master_end = models.IntegerField(default=5000, blank=False, null=True)
     master_speed = models.IntegerField(default=300, blank=False, null=True)
-
-    def copy_relations(self, old_instance):
-        for slide in old_instance.slide.all():
-            slide.pk = None
-            slide.plugin = self
-            slide.save()
 
     def __unicode__(self):
         return _(u"Revolution Slider")
