@@ -1,0 +1,8 @@
+{% load cms_tags %}
+<div class="tp-caption sfr stl xlarge_white" data-x="{{ instance.position_x }}" data-y="{{ instance.position_y }}" data-speed="{{ instance.speed }}" data-easing="{{ instance.easing }}" data-start="{{ instance.start }}" data-end="{{ instance.end }}" data-splitin="{{ instance.splitin }}" data-elementdelay="{{ instance.elementdelay }}" data-endelementdelay="{{ instance.endelementdelay }}" data-splitout="{{ instance.splitout }}">
+  {% for plugin in instance.child_plugin_instances %}
+    {% render_plugin plugin %}
+  {% empty %}
+    {{ instance.layer_text|safe }}
+  {% endfor %}
+</div>
