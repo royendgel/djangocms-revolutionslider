@@ -55,6 +55,7 @@ class Slide(CMSPlugin):
 @python_2_unicode_compatible
 class Layer(CMSPlugin):
     INCOMING_LAYER_ANIMATION = (
+        ('', _("None")),
         ('sft', 'Short from Top'),
         ('sfb', 'Short from Bottom'),
         ('sfr', 'Short from Right'),
@@ -71,6 +72,7 @@ class Layer(CMSPlugin):
         ('randomrotate', 'Fade in, Rotate from a Random position and Degree')
     )
     OUTGOING_LAYER_ANIMATION = (
+        ('', _("None")),
         ('stt', 'Short to Top'),
         ('stb', 'Short to Bottom'),
         ('str', 'Short to Right'),
@@ -143,8 +145,10 @@ class Layer(CMSPlugin):
         max_length=255,
         default="center",
     )
-    incoming_animation = models.CharField(max_length=255, choices=INCOMING_LAYER_ANIMATION, default=INCOMING_LAYER_ANIMATION[0])
-    outgoing_animation = models.CharField(max_length=255, choices=OUTGOING_LAYER_ANIMATION, default=OUTGOING_LAYER_ANIMATION[0])
+    v_offset = models.IntegerField(_("Vertical offset"), help_text="value in pixels", default=0)
+    h_offset = models.IntegerField(_("Horizontal offset"), help_text="value in pixels", default=0)
+    incoming_animation = models.CharField(max_length=255, choices=INCOMING_LAYER_ANIMATION, default=INCOMING_LAYER_ANIMATION[0], blank=True)
+    outgoing_animation = models.CharField(max_length=255, choices=OUTGOING_LAYER_ANIMATION, default=OUTGOING_LAYER_ANIMATION[0], blank=True)
     easing = models.CharField(max_length=25, choices=EASE_CHOICES, default=EASE_CHOICES[0])
     layer_text = models.TextField(max_length=255, blank=True)
     splitin = models.CharField(max_length=255, choices=SPLIT_CHOICES, default=SPLIT_CHOICES[0], blank=True)
@@ -161,6 +165,7 @@ class Layer(CMSPlugin):
         blank=True,
         null=True
     )
+    style = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
         return u"{0}".format(self.layer_text)
