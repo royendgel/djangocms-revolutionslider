@@ -15,6 +15,7 @@ setup(
       'Development Status :: 3 - Alpha',
       'Topic :: Utilities',
       'Programming Language :: Python :: 2.7',
+      'Programming Language :: Python :: 3',
     ],
     include_package_data=True,
 )
